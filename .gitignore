@@ -15,6 +15,6 @@
 # vendor/
 
 main
-
+getGroups
 #ignore patch files
 *.patch
