@@ -21,8 +21,8 @@ jobs:
         go-version: 1.15
 
     - name: Build
-      #run: ./build/build.sh
-      run: ls
+      run: bash ./build/build.sh
+      #run: $ git update-index --chmod +x ./scripts/moveFile.sh
 
     #- name: Test
      # run: go test -v ./...
