@@ -21,3 +21,12 @@ jobs:
     - name: Build Linux raspberypi4
       run: go build main.go
       env: GOOS=linux GOARCH=arm64 go build -v github.com/path/to/your/app  
+      
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2.2.2
+        with:
+          name: main*
+          path: ./
+        Available Options: error
+        retention-days: 10
+          
