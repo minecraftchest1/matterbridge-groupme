@@ -23,7 +23,8 @@ jobs:
     - name: Build
       #run: bash ./build/build.sh
       #run: $ git update-index --chmod +x ./scripts/moveFile.sh
-      run: go build main.go
-      run: go build getGroups.go
+        steps:
+          -run: go build main.go
+          -run: go build getGroups.go
     #- name: Test
      # run: go test -v ./...
