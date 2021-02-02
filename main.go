@@ -26,8 +26,8 @@ func main() {
         //flag.StringVar(&token, "m", "messages", "Get Messages from group")
         flag.Parse()
 
-        token   := ""
-        group   := ""
+        //token   := ""
+        //group   := ""
 }
 func getMessages() {
         resp, err  := http.Get("https://api.groupme.com/v3/groups/" + group + "?token=" + token)
