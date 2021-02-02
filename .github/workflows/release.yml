@@ -2,8 +2,7 @@ name: Build Release
 
 on:
   push:
-  pull_request:
-  	branches: [ main ]
+  	branches: [ release ]
   workflow_dispatch:
 
 jobs:
