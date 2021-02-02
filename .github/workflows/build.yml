@@ -20,9 +20,7 @@ jobs:
       with:
         go-version: 1.15
 
-    - name: Build
-        steps:
-          - run: go build main.go
-          - run: go build getGroups.go
+    - name: Build main
+        run: go build main.go
     #- name: Test
      # run: go test -v ./...
