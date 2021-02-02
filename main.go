@@ -21,7 +21,7 @@ func main() {
         var token string
         var group string
 
-        flag.StringVar(&token, "t", "", "Specify Access Token.")
+        flag.StringVar(&token, "t", "token", "Specify Access Token.")
         flag.StringVar(&group, "g", "group", "Specify GroupID")
         //flag.StringVar(&token, "m", "messages", "Get Messages from group")
         flag.Parse()
