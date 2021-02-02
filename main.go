@@ -9,6 +9,9 @@ import (
         "flag"
         )
 
+var token string
+var group string
+
 func main() {
         //print commandline Args
         //fmt.Println(os.Args)
@@ -18,8 +21,7 @@ func main() {
                 fmt.Printf("Arg %d is %s\n", i+1, a)
         }
 
-        var token string
-        var group string
+
 
         flag.StringVar(&token, "t", "token", "Specify Access Token.")
         flag.StringVar(&group, "g", "group", "Specify GroupID")
