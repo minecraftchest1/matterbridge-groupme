@@ -1,0 +1,23 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+	  branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.15
+
+    - name: Build Linux raspberypi4
+      run: go build main.go
+      env: GOOS=linux GOARCH=arm64 go build -v github.com/path/to/your/app  
