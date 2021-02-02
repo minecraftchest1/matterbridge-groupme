@@ -9,6 +9,9 @@ import (
         "flag"
         )
 
+var token string
+var group string
+
 func main() {
         //print commandline Args
         //fmt.Println(os.Args)
@@ -18,16 +21,15 @@ func main() {
                 fmt.Printf("Arg %d is %s\n", i+1, a)
         }
 
-        var token string
-        var group string
 
-        flag.StringVar(&token, "t", "", "Specify Access Token.")
+
+        flag.StringVar(&token, "t", "token", "Specify Access Token.")
         flag.StringVar(&group, "g", "group", "Specify GroupID")
         //flag.StringVar(&token, "m", "messages", "Get Messages from group")
         flag.Parse()
 
-        token   := ""
-        group   := ""
+        //token   := ""
+        //group   := ""
 }
 func getMessages() {
         resp, err  := http.Get("https://api.groupme.com/v3/groups/" + group + "?token=" + token)
