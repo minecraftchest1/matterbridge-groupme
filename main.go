@@ -11,6 +11,7 @@ import (
 
 var token string
 var group string
+var get string
 
 func main() {
         //print commandline Args
@@ -25,11 +26,16 @@ func main() {
 
         flag.StringVar(&token, "t", "token", "Specify Access Token.")
         flag.StringVar(&group, "g", "group", "Specify GroupID")
+	flag.StringVar(&get, "get", "false", "Get group info.")
         //flag.StringVar(&token, "m", "messages", "Get Messages from group")
         flag.Parse()
 
         //token   := ""
         //group   := ""
+
+	//if get == "true"{
+		getMessages()
+	//}
 }
 func getMessages() {
         resp, err  := http.Get("https://api.groupme.com/v3/groups/" + group + "?token=" + token)
@@ -39,6 +45,6 @@ func getMessages() {
         fmt.Printf("%s", msgBody)
         if err != nil {
                 log.Fatal(err)
-        }
+	}
 }
 
