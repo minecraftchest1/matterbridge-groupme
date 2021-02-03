@@ -21,10 +21,10 @@ jobs:
     - name: Build Linux raspberypi4
       run: |
         env GOOS=linux GOARCH=arm64
-        go build main.go  
+        go build main.go -o main-linux-arm64
       
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2.2.2
       with:
-         name: main**
+         name: main-linux-arm64
          path: ./
