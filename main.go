@@ -30,6 +30,9 @@ func main() {
         //flag.StringVar(&token, "m", "messages", "Get Messages from group")
         flag.Parse()
 
+	fmt.Printf("%s", token)
+	fmt.Printf("%s", group)
+
         //token   := ""
         //group   := ""
 
