@@ -1,0 +1,30 @@
+name: Build-Release
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - release
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.15
+
+    - name: Build Linux raspberypi4
+      run: |
+        env GOOS=linux GOARCH=arm64
+        go build -o main-linux-arm64 main.go
+      
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2.2.2
+      with:
+         name: main-linux-arm64
+         path: ./
