@@ -22,21 +22,25 @@ jobs:
       run: |
         env GOOS=linux GOARCH=arm64
         go build -o bin/main-linux-arm64 main.go
+      continue-on-error: true
       
     - name: Build Linux-armv6
       run: |
         env GOOS=linux GOARM=6 GOARCH=arm
         go build -o bin/main-linux-armv6 main.go
+      continue-on-error: true
         
     - name: Build Windows-386
       run: |
         env GOOS=linux GOARCH=386
         go build -o bin/main-windows-386
+      contine-on-error: true
         
     - name: Build Windows-amd64
       run: |
         env GOOS=windows GOARCH=amd64
         go build -o bin/main-windows-amd64
+      continue-on-error: true
         
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2.2.2
