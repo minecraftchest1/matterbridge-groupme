@@ -8,7 +8,28 @@ on:
 
 jobs:
 
-  build-linux-arm:
+  build-linux-arm64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.15
+    - name: Build Linux-arm64
+      run: |
+        env GOOS=linux GOARCH=arm64
+        go build -o bin/main-linux-arm64 main.go
+      continue-on-error: true
+    
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2.2.2
+      with:
+        name: main-linux-arm64
+        path: ./bin/main-linux-arm64
+        
+  build-linux-armv6:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -18,12 +39,6 @@ jobs:
       with:
         go-version: 1.15
 
-    - name: Build Linux-arm64
-      run: |
-        env GOOS=linux GOARCH=arm64
-        go build -o bin/main-linux-arm64 main.go
-      continue-on-error: true
-      
     - name: Build Linux-armv6
       run: |
         env GOOS=linux GOARM=6 GOARCH=arm
@@ -33,7 +48,8 @@ jobs:
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2.2.2
       with:
-         path: ./bin
+        name: main-linux-armv6
+        path: ./bin/main-linux-armv6
 
   build-windows-386-amd64:
     runs-on: ubuntu-latest
