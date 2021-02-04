@@ -51,7 +51,7 @@ jobs:
         name: main-linux-armv6
         path: ./bin/main-linux-armv6
 
-  build-windows-386-amd64:
+  build-windows-386:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -66,8 +66,23 @@ jobs:
         env GOOS=linux GOARCH=386
         go build -o bin/main-windows-386 main.go
       continue-on-error: true
+      
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2.2.2
+      with:
+         path: ./bin
+
+  build-windows-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.15
         
-    - name: Build Windows-amd64
+      - name: Build Windows-amd64
       run: |
         env GOOS=windows GOARCH=amd64
         go build -o bin/main-windows-amd64 main.go
