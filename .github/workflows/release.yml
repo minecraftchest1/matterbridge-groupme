@@ -70,7 +70,8 @@ jobs:
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2.2.2
       with:
-         path: ./bin
+        name: main-windows-386
+        path: ./bin
 
   build-windows-amd64:
     runs-on: ubuntu-latest
@@ -91,7 +92,8 @@ jobs:
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2.2.2
       with:
-         path: ./bin
+        name: main-windows-amd64 
+        path: ./bin
 
 
 
