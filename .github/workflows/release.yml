@@ -28,6 +28,10 @@ jobs:
         env GOOS=linux GOARM=6 GOARCH=arm
         go build -o bin/main-linux-armv6 main.go
         
+    - name: Build Windows-386
+      run: |
+        env GOOS=linux GOARCH=386
+        go build -o bin/main-windows-386
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2.2.2
       with:
