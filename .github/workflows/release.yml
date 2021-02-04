@@ -32,6 +32,12 @@ jobs:
       run: |
         env GOOS=linux GOARCH=386
         go build -o bin/main-windows-386
+        
+    - name: Build Windows-amd64
+      run: |
+        env GOOS=windows GOARCH=amd64
+        go build -o bin/main-windows-amd64
+        
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2.2.2
       with:
