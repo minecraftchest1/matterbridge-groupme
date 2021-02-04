@@ -18,11 +18,16 @@ jobs:
       with:
         go-version: 1.15
 
-    - name: Build Linux raspberypi4
+    - name: Build Linux-arm64
       run: |
         env GOOS=linux GOARCH=arm64
-        go build -o main-linux-arm64 main.go
+        go build -o bin/main-linux-arm64 main.go
       
+    - name: Build Linux-armv6
+      run: |
+        env GOOS=linux GOARM=6 GOARCH=arm
+        go build -o bin/main-linux-armv6 main.go
+        
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2.2.2
       with:
