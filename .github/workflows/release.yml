@@ -34,7 +34,7 @@ jobs:
       run: |
         env GOOS=linux GOARCH=386
         go build -o bin/main-windows-386
-      contine-on-error: true
+      continue-on-error: true
         
     - name: Build Windows-amd64
       run: |
