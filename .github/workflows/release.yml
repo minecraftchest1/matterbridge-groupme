@@ -33,13 +33,13 @@ jobs:
     - name: Build Windows-386
       run: |
         env GOOS=linux GOARCH=386
-        go build -o bin/main-windows-386
+        go build -o bin/main-windows-386 main.go
       continue-on-error: true
         
     - name: Build Windows-amd64
       run: |
         env GOOS=windows GOARCH=amd64
-        go build -o bin/main-windows-amd64
+        go build -o bin/main-windows-amd64 main.go
       continue-on-error: true
         
     - name: Upload Artifacts
